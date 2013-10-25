@@ -47,6 +47,18 @@ namespace Tinker{
 		template <class T1>
 		Vect3d<T>& operator-=(T1 v);
 
+		//Scalar Mult
+		template <class T1>
+		Vect3d<T> operator*(T1 v)const;
+		template <class T1>
+		Vect3d<T>& operator*=(T1 v);
+
+		//Scalar Div
+		template <class T1>
+		Vect3d<T> operator/(T1 v)const;
+		template <class T1>
+		Vect3d<T>& operator/=(T1 v);
+
 		//Test
 		template <class T1>
 		bool operator==(const Vect3d<T1>& other);
@@ -184,6 +196,42 @@ namespace Tinker{
 		_v[0] -= v;
 		_v[1] -= v;
 		_v[2] -= v;
+		return *this;
+	}
+
+	template <class T>
+	template <class T1>
+	Vect3d<T> Vect3d<T>::operator*(T1 v)const{
+		Vect3d<T> r;
+		r[0] = _v[0]*v;
+		r[1] = _v[1]*v;
+		r[2] = _v[2]*v;
+		return r;
+	}
+	template <class T>
+	template <class T1>
+	Vect3d<T>& Vect3d<T>::operator*=(T1 v){
+		_v[0] *= v;
+		_v[1] *= v;
+		_v[2] *= v;
+		return *this;
+	}
+
+	template <class T>
+	template <class T1>
+	Vect3d<T> Vect3d<T>::operator/(T1 v)const{
+		Vect3d<T> r;
+		r[0] = _v[0]/v;
+		r[1] = _v[1]/v;
+		r[2] = _v[2]/v;
+		return r;
+	}
+	template <class T>
+	template <class T1>
+	Vect3d<T>& Vect3d<T>::operator/=(T1 v){
+		_v[0] /= v;
+		_v[1] /= v;
+		_v[2] /= v;
 		return *this;
 	}
 
