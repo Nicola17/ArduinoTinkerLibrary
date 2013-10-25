@@ -2,7 +2,6 @@
 #define TIMEOUT_H
 
 #include "AbstractLog.h"
-#include <Arduino.h>
 
 namespace Tinker{
   

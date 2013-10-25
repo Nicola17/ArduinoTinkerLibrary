@@ -1,6 +1,8 @@
 #ifndef ABSTRACTSENSOR_H
 #define ABSTRACTSENSOR_H
 
+#include <arduino.h>
+
 namespace Tinker{
 
   class AbstractSensor{

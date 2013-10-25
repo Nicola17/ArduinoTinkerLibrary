@@ -1,0 +1,17 @@
+#include "Vect3d.h"
+
+
+/*******************************
+ * Vect3d example
+ *******************************/
+
+void setup(){
+	Tinker::Vect3d<float> f0;
+	Tinker::Vect3d<float> f1(1.f);
+	Tinker::Vect3d<float> f2(f1);
+
+}
+
+void loop(){
+
+}

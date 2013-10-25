@@ -1,8 +1,6 @@
 #ifndef ABSTRACTACTUATOR_H
 #define ABSTRACTACTUATOR_H
 
-#include <Arduino.h>
-
 namespace Tinker{
 
   /*********************************************

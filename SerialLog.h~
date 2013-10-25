@@ -1,6 +1,8 @@
 #ifndef SERIALLOG_H
 #define SERIALLOG_H
 
+#include "AbstractLog.h"
+
 namespace Tinker{
 
   class SerialLog: public AbstractLog{

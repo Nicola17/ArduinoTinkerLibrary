@@ -1,8 +1,6 @@
 #ifndef ABSTRACTLOG_H
 #define ABSTRACTLOG_H
 
-#include <Arduino.h>
-
 namespace Tinker{
 
 	class AbstractLog{
