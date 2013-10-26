@@ -5,6 +5,10 @@
 
 namespace Tinker{
 
+/***************************************************
+ * AbstractLog - Abstract interface for any logger
+ *************************************************+*/
+
 	class AbstractLog{
 	public:
 		virtual void endline()=0;
@@ -17,7 +21,10 @@ namespace Tinker{
 		virtual void display(unsigned long v)=0;
 		virtual void clear()=0;
 	};
-
 }
+
+#define SECURE_LOG(_logptr,val){if(_logptr!=0){_logptr->display(val);_logptr->endline();}}
+#define SECURE_LOG_VAL(_logptr,name,val){if(_logptr!=0){_logptr->display(name);_logptr->display(": ");_logptr->display(val);_logptr->endline();}}
+#define SECURE_LOG_CLEAR(_logptr){if(_logptr!=0){_logptr->clear();}}
 
 #endif
