@@ -85,10 +85,10 @@ void setup(){
 	//External functions
 	lcdLog.endline();  lcdLog.display("External functions"); lcdLog.endline();
 	lcdLog.display("NormL1("); Tinker::LOG::displayVect3d(f0,&lcdLog);   lcdLog.display(" - "); Tinker::LOG::displayVect3d(f1,&lcdLog); lcdLog.display("): ");
-	lcdLog.display(Tinker::normL1(f0,f1)); lcdLog.endline();
+	lcdLog.display(Tinker::normL1(f0-f1)); lcdLog.endline();
 
 	lcdLog.display("NormL2("); Tinker::LOG::displayVect3d(f0,&lcdLog);   lcdLog.display(" - "); Tinker::LOG::displayVect3d(f1,&lcdLog); lcdLog.display("): ");
-	lcdLog.display(Tinker::normL2(f0,f1)); lcdLog.endline();
+	lcdLog.display(Tinker::normL2(f0-f1)); lcdLog.endline();
 
 	lcdLog.display("dot("); Tinker::LOG::displayVect3d(f0,&lcdLog);   lcdLog.display(" - "); Tinker::LOG::displayVect3d(f1,&lcdLog); lcdLog.display("): ");
 	lcdLog.display(Tinker::dot(f0,f1)); lcdLog.endline();

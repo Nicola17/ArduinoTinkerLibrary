@@ -84,10 +84,10 @@ void setup(){
 	//External functions
 	serialLog.endline();  serialLog.display("External functions"); serialLog.endline();
 	serialLog.display("NormL1("); Tinker::LOG::displayVect3d(f0,&serialLog);   serialLog.display(" - "); Tinker::LOG::displayVect3d(f1,&serialLog); serialLog.display("): ");
-	serialLog.display(Tinker::normL1(f0,f1)); serialLog.endline();
+	serialLog.display(Tinker::normL1(f0-f1)); serialLog.endline();
 
 	serialLog.display("NormL2("); Tinker::LOG::displayVect3d(f0,&serialLog);   serialLog.display(" - "); Tinker::LOG::displayVect3d(f1,&serialLog); serialLog.display("): ");
-	serialLog.display(Tinker::normL2(f0,f1)); serialLog.endline();
+	serialLog.display(Tinker::normL2(f0-f1)); serialLog.endline();
 
 	serialLog.display("dot("); Tinker::LOG::displayVect3d(f0,&serialLog);   serialLog.display(" - "); Tinker::LOG::displayVect3d(f1,&serialLog); serialLog.display("): ");
 	serialLog.display(Tinker::dot(f0,f1)); serialLog.endline();

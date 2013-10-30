@@ -7,9 +7,9 @@
 
 namespace Tinker{
 
-/***************************************************
- * AbstractLog - Abstract interface for any logger
- ***************************************************/
+/**********************************************************************
+ * NeoPixelCircularDisplay - Circular display for Adafruit Pixel Ring
+ **********************************************************************/
 
 	template <uint16_t NPXL = 16>
 	class NeoPixelCircularDisplay{
@@ -17,16 +17,7 @@ namespace Tinker{
 		typedef Vect3d<float> fp_color_type;
 		typedef Vect3d<uint8_t> color_type;
 	public:
-		NeoPixelCircularDisplay(uint8_t pin, uint8_t type=NEO_GRB+NEO_KHZ800):
-			_log(0),
-			_ring(NPXL,pin,type)
-		{
-			for(int i = 0; i < NPXL; ++i){
-				_color[i] = 0;
-				_toUpdate[i] = true;
-			}
-		}
-
+		NeoPixelCircularDisplay(uint8_t pin, uint8_t type=NEO_GRB+NEO_KHZ800);
 		void init(); //initialize circular display
 		void show(); //show current colors on display
 		void reset();
@@ -54,7 +45,16 @@ namespace Tinker{
 	};
 
 /****************************************************/
-
+	template <uint16_t NPXL>
+	NeoPixelCircularDisplay<NPXL>::NeoPixelCircularDisplay(uint8_t pin, uint8_t type):
+			_log(0),
+			_ring(NPXL,pin,type)
+		{
+			for(int i = 0; i < NPXL; ++i){
+				_color[i] = 0;
+				_toUpdate[i] = true;
+			}
+		}
 	template <uint16_t NPXL>
 	void NeoPixelCircularDisplay<NPXL>::init(){
 		SECURE_LOG(_log,"Circular display initialization");
