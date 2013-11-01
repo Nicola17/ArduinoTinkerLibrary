@@ -99,7 +99,8 @@ namespace Tinker{
 			_display.show();
 			return;
 		}
-		float rad = 0;
+		float rad = atan2(v[0],v[1]);
+		SECURE_LOG_VAL(_log,"rad",rad);
 		
 		const float f((l-_minVal)/(_maxVal-_minVal));
 		SECURE_LOG_VAL(_log,"f",f);
@@ -108,16 +109,21 @@ namespace Tinker{
 		const float sigma	(_minSigma 	+ f*(_maxSigma-_minSigma));
 		SECURE_LOG_VAL(_log,"sigma",sigma);
 		
-		color_type color;
-		
-		_display.setBrightness(bright);
-		if(NCLRS == 1)
+		if(NCLRS == 1){
 			_display.setColorFp(rad,_colors[0],sigma, false);
-		else{
+			_display.setBrightness(bright);
+		}else{
 			const float fpColorIdx(f*(NCLRS-1));
 			const int intColorIdx(static_cast<int>(fpColorIdx));
 			const float s(fpColorIdx-intColorIdx);
 			const color_type color = _colors[intColorIdx]*(1-s)+_colors[intColorIdx+1]*(s);
+			
+			const float colorNorm(normL2(color));
+			SECURE_LOG_VAL(_log,"Color norm",colorNorm);
+			const float normalizedBright(255.*bright/colorNorm);
+			SECURE_LOG_VAL(_log,"Normalized brightness",normalizedBright);
+			
+			_display.setBrightness(bright);
 			_display.setColorFp(rad,color,sigma, false);
 		
 		}
