@@ -31,7 +31,7 @@ namespace Tinker{
 		return _maxTimeout.timeout();
 	}
 	
-	boolean TimedButton::refreshAndCheck(){
+	boolean TimedButton::enabled(){
 		const boolean enabled(_toggle.enabled());
 		if(!_waiting && enabled){
 			SECURE_LOG(_log,"Timed button is waiting...");

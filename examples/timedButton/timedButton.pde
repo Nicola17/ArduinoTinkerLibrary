@@ -24,7 +24,7 @@ void setup(){
 }
 
 void loop(){
-      const boolean activated(button.refreshAndCheck());
+      const boolean activated(button.enabled());
       if(activated){
 	  led.setEnabled(true);
           delay(100);
