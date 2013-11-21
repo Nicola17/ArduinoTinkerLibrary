@@ -1,7 +1,8 @@
-#ifndef ToggleSwitch_H
-#define ToggleSwitch_H
+#ifndef TOGGLESWITCH_H
+#define TOGGLESWITCH_H
 
 #include "AbstractLog.h"
+
 /****************************************
  * ToggleSwitch
  * Once initialized return the status of
@@ -14,8 +15,8 @@ namespace Tinker{
 		ToggleSwitch():_log(0){}
 		ToggleSwitch(int pin);
 		void setPin(int pin);
-      int pin()const;
-      void initialize();
+		int pin()const;
+		void initialize();
 		
 		virtual boolean enabled()const;
 		

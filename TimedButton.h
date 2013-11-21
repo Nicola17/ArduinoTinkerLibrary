@@ -21,7 +21,7 @@ namespace Tinker{
 		void setMaxTime(float maxT);
 		unsigned long maxTime()const;
 		
-		boolean refreshAndCheck();
+		boolean enabled();
 		
 	private:
 		ToggleSwitch 	_toggle;

@@ -8,19 +8,18 @@
  *******************************/
 
 Tinker::SerialLog 		serialLog;
-Tinker::DigitalActuator led;
-Tinker::TimedButton		button;
+typedef Tinker::SequentialStatusSwitcher<TimedButton>	StatusSwitcher;
+
+StatusSwitcher::status_type currentStatus = 0;
+StatusSwitcher statusSwitcher;
 
 void setup(){
 	Serial.begin(9600);
-	serialLog.display("TimedButton Example\n");
+	serialLog.display("SequentialStatusSwitcher Example\n");
 	
-	led.setPin(13);
-	led.initialize();
-
 	button._log = &serialLog;
-	button.setPin(2);
-	button.initialize(1000,5000); //Setting a minimum of one sec and a maximum of five sec to activate
+	//statusSwitcher.switch().setPin(2);
+	//statusSwitcher.switch().initialize(1000,5000); //Setting a minimum of one sec and a maximum of five sec to activate
 }
 
 void loop(){
