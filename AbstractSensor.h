@@ -3,9 +3,15 @@
 
 namespace Tinker{
 
+	//! Abstract interface for any scalar sensor
+	/*!
+		Every object that should act as a scalar sensor must inherit from this class. 
+		\author Nicola Pezzotti
+	*/
   class AbstractSensor{
   public:
-    virtual float value()=0;
+	//! Returns sensor reading.
+	virtual float value()=0;
   };
 
 }
