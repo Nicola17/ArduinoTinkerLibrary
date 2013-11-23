@@ -8,6 +8,7 @@ namespace Tinker{
 
 	class LiquidCrystalLog: public AbstractLog{
 	public:
+		virtual ~LiquidCrystalLog(){}
 		LiquidCrystalLog(unsigned int delayTime = 500): 
 			_delayTime(delayTime), 
 			_lcd(12, 11, 5, 4, 3, 2)
