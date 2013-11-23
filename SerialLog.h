@@ -11,6 +11,7 @@ namespace Tinker{
     */
     class SerialLog: public AbstractLog{
     public:
+		virtual ~SerialLog(){};
         //! Endline.
         virtual void endline();
         //! Display a character array.

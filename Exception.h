@@ -47,15 +47,22 @@ namespace Tinker{
 #define TNK_ASSERT(cond,type,message){if(!(cond)){Tinker::Exception::throwException(type,message);}}
 #define TNK_ASSERT_LOGIC(cond,message){if(!(cond)){Tinker::Exception::throwException(Tinker::Exception::Logic,message);}}
 #define TNK_ASSERT_RUNTIME(cond,message){if(!(cond)){Tinker::Exception::throwException(Tinker::Exception::Runtime,message);}}
-
+		
 #define TNK_THROW_RTN(type,message){TNK_THROW(type,message);return;}
 #define TNK_THROW_LOGIC_RTN(message){TNK_THROW_LOGIC(message);return;}
 #define TNK_THROW_RUNTIME_RTN(message){TNK_THROW_RUNTIME(message);return;}
+#define TNK_THROW_RTNV(type,message,val){TNK_THROW(type,message);return val;}
+#define TNK_THROW_LOGIC_RTNV(message,val){TNK_THROW_LOGIC(message);return val;}
+#define TNK_THROW_RUNTIME_RTNV(message,val){TNK_THROW_RUNTIME(message);return val;}
 
 #define TNK_ASSERT_RTN(cond,type,message){TNK_ASSERT(cond,type,message);return;}
 #define TNK_ASSERT_LOGIC_RTN(cond,message){TNK_ASSERT_LOGIC(cond,message);return;}
 #define TNK_ASSERT_RUNTIME_RTN(cond,message){TNK_ASSERT_RUNTIME(cond,message);return;}
+#define TNK_ASSERT_RTNV(cond,type,message,val){TNK_ASSERT(cond,type,message);return val;}
+#define TNK_ASSERT_LOGIC_RTNV(cond,message,val){TNK_ASSERT_LOGIC(cond,message);return val;}
+#define TNK_ASSERT_RUNTIME_RTNV(cond,message,val){TNK_ASSERT_RUNTIME(cond,message);return val;}
 
 #define STOP_SKETCH_ON_EXCEPTION(){if(Tinker::Exception::exceptionThrown())return;}
+#define STOP_SKETCH_ON_EXCEPTION(val){if(Tinker::Exception::exceptionThrown())return val;}
 
 #endif
