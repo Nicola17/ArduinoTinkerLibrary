@@ -1,12 +1,31 @@
 #include "TinkerWatchImpl.h"
+#include "Exception.h"
+
+const uint32_t TinkerWatchImpl::_millsDay = 1000*60*60*12;
+const uint32_t TinkerWatchImpl::_millsHour = 1000*60*60;
+const uint32_t TinkerWatchImpl::_millsMinute = 1000*60;
+const uint32_t TinkerWatchImpl::_millsSecond = 1000;
 
 TinkerWatchImpl::TinkerWatchImpl():
 	_switchPin(10),
 	_ringPin(9),
 	_display(9),
+	_magDisplay(9),
 	_brightness(30),
 	_nStatus(6),
-	_currentStatus(0)
+	_currentStatus(0),
+	_transitionColor(255,150,0),
+	_magnColor(255,0,255),
+	_colorMilliSec(200,120,0),
+	_colorSec(0,200,0),
+	_colorMin(0,0,200),
+	_colorHour(200,0,0),
+	_sigmaMilliSec(Display::radBetweenPixels()/6),
+	_sigmaSec(Display::radBetweenPixels()/3.5),
+	_sigmaMin(Display::radBetweenPixels()/2),
+	_sigmaHour(Display::radBetweenPixels()/1.5),
+	_lastTimeExecMillis(0),
+	_lastTimeDayMillis(0)
 {}
 	
 void TinkerWatchImpl::initialize(){
@@ -17,6 +36,12 @@ void TinkerWatchImpl::initialize(){
 	_statusSwitcher.setNumberOfStatus(_nStatus);
 	_statusSwitcher.setStatus(_currentStatus);
 	
+	_magSensor.initialize();
+	STOP_SKETCH_ON_EXCEPTION();
+	
+	_magDisplay.init(0,200,Display::radBetweenPixels()/2,Display::radBetweenPixels(),10,40);
+	_magDisplay.setColor(0,_magnColor);
+	STOP_SKETCH_ON_EXCEPTION();
 	
 	_display.init();
 	_display.setBrightness(_brightness);
@@ -36,11 +61,10 @@ void TinkerWatchImpl::startAnimation(){
 }
 
 void TinkerWatchImpl::changeStatusAnimation(){
-	color_type color(255,0,0);
 	uint8_t nPxl(16);
 	_display.reset();
 	for(int i = 0; i < 16; ++i){
-		_display.setColor(i,color);
+		_display.setColor(i,_transitionColor);
 		_display.show();
 		delay(20);
 	}
@@ -67,8 +91,43 @@ void TinkerWatchImpl::randomAnimation(){
 	delay(50);
 }
 
-void TinkerWatchImpl::update(){
+void TinkerWatchImpl::compass(){
+	const Tinker::Vect3d<float> readings(_magSensor.value());
+	Tinker::Vect2d<float> v(readings[0],readings[1]);
+	_magDisplay.show(v);
+}
 
+
+void TinkerWatchImpl::displayTime(){
+	const uint32_t time = millis()-_lastTimeExecMillis+_lastTimeDayMillis;
+
+	const float radMilliSec = 2.*PI*(time%_millsSecond)/_millsSecond;
+	const float radSec 		= 2.*PI*(time%_millsMinute)/_millsMinute;
+	const float radMin 		= 2.*PI*(time%_millsHour)/_millsHour;
+	const float radHour 	= 2.*PI*(time%_millsDay)/_millsDay;
+	
+	_display.reset(); 
+	_display.setColorFp(radMilliSec,_colorMilliSec,_sigmaMilliSec,true);
+	_display.setColorFp(radSec,_colorSec,_sigmaSec,true);
+	_display.setColorFp(radMin,_colorMin,_sigmaMin,true);
+	_display.setColorFp(radHour,_colorHour,_sigmaHour,true);
+	_display.show();
+}
+
+void TinkerWatchImpl::setTime(uint32_t h, uint32_t m, uint32_t s){
+	_serialLog.display("Set time");_serialLog.endline();
+	_serialLog.display("h:");_serialLog.display(h);_serialLog.endline();
+	_serialLog.display("m:");_serialLog.display(m);_serialLog.endline();
+	_serialLog.display("s:");_serialLog.display(s);_serialLog.endline();
+	_lastTimeExecMillis = millis();
+	_lastTimeDayMillis = s*_millsSecond + m*_millsMinute + h*_millsHour;
+	_serialLog.display("x:");_serialLog.display(_lastTimeExecMillis);_serialLog.endline();
+	_serialLog.display("t:");_serialLog.display(_lastTimeDayMillis);_serialLog.endline();
+}
+
+void TinkerWatchImpl::update(){
+	STOP_SKETCH_ON_EXCEPTION();
+	
 	_statusSwitcher.refresh();
 	StatusSwitcher::status_type s = _statusSwitcher.status();
 	if(s!=_currentStatus){
@@ -76,10 +135,10 @@ void TinkerWatchImpl::update(){
 		changeStatusAnimation();
 	}
 	switch(_currentStatus){
-		case Compass: break;
+		case Compass: 			compass(); 			break;
 		case Accellerometer: break;
 		case GPS: break;
-		case Clock: break;
-		case RandomAnimation: randomAnimation(); break;
+		case Clock: 			displayTime(); 		break;
+		case RandomAnimation: 	randomAnimation(); 	break;
 	}
 }
