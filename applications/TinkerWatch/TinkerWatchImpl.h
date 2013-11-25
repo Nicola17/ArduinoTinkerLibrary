@@ -5,7 +5,6 @@
 #include "NeoPixelCircularDisplay.h"
 #include "MagneticSensorLSM303.h"
 #include "Vect2dCircularDisplay.h"
-#include "TMP36.h"
 
 class TinkerWatchImpl{
 public:
@@ -16,7 +15,6 @@ public:
 	typedef Tinker::MagneticSensorLSM303		MagSensor;
 	typedef Tinker::Vect2dCircularDisplay<Display,1> MagDisplay;
 	typedef Tinker::Vect3d<uint8_t> 			color_type;
-	typedef Tinker::TMP36 			TemperatureSensor;
 	enum Mode{
 		RandomAnimation = 0,
 		Compass = 1,
@@ -43,8 +41,6 @@ public:
 	
 	void setTime(uint32_t h, uint32_t m, uint32_t s);
 	
-	void displayTemperature();
-	
 	void update();
 	
 	
@@ -65,7 +61,7 @@ private:
 	SerialLog		_serialLog;
 	MagSensor		_magSensor;
 	MagDisplay 		_magDisplay;
-	TemperatureSensor _tmpSensor;
+	
 	
 	//Time
 	uint32_t _lastTimeExecMillis;

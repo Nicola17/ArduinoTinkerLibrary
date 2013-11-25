@@ -1,9 +1,9 @@
 #include "TinkerWatchImpl.h"
 #include "Exception.h"
 
-const uint32_t TinkerWatchImpl::_millsDay = 43200000;
-const uint32_t TinkerWatchImpl::_millsHour = 3600000;
-const uint32_t TinkerWatchImpl::_millsMinute = 60000;
+const uint32_t TinkerWatchImpl::_millsDay = 1000*60*60*12;
+const uint32_t TinkerWatchImpl::_millsHour = 1000*60*60;
+const uint32_t TinkerWatchImpl::_millsMinute = 1000*60;
 const uint32_t TinkerWatchImpl::_millsSecond = 1000;
 
 TinkerWatchImpl::TinkerWatchImpl():
@@ -41,11 +41,6 @@ void TinkerWatchImpl::initialize(){
 	
 	_magDisplay.init(0,200,Display::radBetweenPixels()/2,Display::radBetweenPixels(),10,40);
 	_magDisplay.setColor(0,_magnColor);
-	STOP_SKETCH_ON_EXCEPTION();
-	
-	_tmpSensor.setPin(6);
-	_tmpSensor.setVoltageRef(3.3);
-	_tmpSensor.initialize();
 	STOP_SKETCH_ON_EXCEPTION();
 	
 	_display.init();
@@ -126,26 +121,8 @@ void TinkerWatchImpl::setTime(uint32_t h, uint32_t m, uint32_t s){
 	_serialLog.display("s:");_serialLog.display(s);_serialLog.endline();
 	_lastTimeExecMillis = millis();
 	_lastTimeDayMillis = s*_millsSecond + m*_millsMinute + h*_millsHour;
-}
-
-void TinkerWatchImpl::displayTemperature(){
-//TODO
-	_tmpSensor._log = &_serialLog;
-	float temp = _tmpSensor.value();
-	_serialLog.display(temp);_serialLog.endline();
-	int intTemp(temp);
-	int u(intTemp%10);
-	int d(intTemp/10);
-	_serialLog.display(u);_serialLog.endline();
-	_serialLog.display(d);_serialLog.endline();
-	_display.reset();
-	for(int i = 0; i < u; ++i)
-		_display.setColor(i,color_type(0,255,0),true);
-	for(int i = 0; i < d; ++i)
-		_display.setColor(i,color_type(255,0,0),true);
-	_display.show();
-	delay(100);
-	
+	_serialLog.display("x:");_serialLog.display(_lastTimeExecMillis);_serialLog.endline();
+	_serialLog.display("t:");_serialLog.display(_lastTimeDayMillis);_serialLog.endline();
 }
 
 void TinkerWatchImpl::update(){
@@ -162,7 +139,6 @@ void TinkerWatchImpl::update(){
 		case Accellerometer: break;
 		case GPS: break;
 		case Clock: 			displayTime(); 		break;
-		case Temperature:		displayTemperature(); break;
 		case RandomAnimation: 	randomAnimation(); 	break;
 	}
 }
