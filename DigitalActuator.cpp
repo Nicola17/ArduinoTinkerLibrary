@@ -8,9 +8,7 @@ namespace Tinker{
 	{}
 	
 	void DigitalActuator::setPin(int pin){
-		if(_log!=0){
-			_log->display("Setting on/off actuator pin: "); 	_log->display(_pin); 	_log->endline();
-		}
+		SECURE_LOG_VAL(_log,"Setting on/off actuator pin", _pin);
 		_pin = pin;
 	}
 	int DigitalActuator::pin()const{
@@ -18,13 +16,7 @@ namespace Tinker{
 	}
 
 	void DigitalActuator::setEnabled(boolean v){
-		if(_log!=0){
-			if(v){
-				_log->display("Actuator: ON"); _log->endline();
-			}else{
-				_log->display("Actuator: OFF"); _log->endline();
-			}
-		}
+		SECURE_LOG_ONOFF(_log,"Actuator")
 		_enabled = v;
 		if(v)
 			digitalWrite(_pin, HIGH);
@@ -36,9 +28,7 @@ namespace Tinker{
 	}
 
    void DigitalActuator::initialize(){
-		if(_log!=0){
-			_log->display("Initializing on/off actuator on pin "); 	_log->display(_pin); 	_log->endline();
-		}
-      pinMode(_pin, OUTPUT);  
+		SECURE_LOG_VAL(_log,"Initializing on/off actuator on pin",_pin);
+		pinMode(_pin, OUTPUT);  
    }	
 }

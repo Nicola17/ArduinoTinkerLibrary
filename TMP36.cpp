@@ -31,12 +31,9 @@ namespace Tinker{
 		float voltage = (sensorVal/1024.)*_voltageRef;
 		float temperature = (voltage*100)-50;
 		
-		if(_log!=0){
-			_log->display("Sensor val: "); 	_log->display(sensorVal); 	_log->endline();
-			_log->display("Voltage: "); 		_log->display(voltage); 		_log->endline();
-			_log->display("Temperature: "); 	_log->display(temperature); 	_log->endline();
-			_log->display("**************************************************"); _log->endline();
-		}
+		SECURE_LOG_VAL(_log,"Digital read",sensorVal);
+		SECURE_LOG_VAL(_log,"Voltage",voltage);
+		SECURE_LOG_VAL(_log,"Temperature",temperature);
 		return temperature;
 	}
 }

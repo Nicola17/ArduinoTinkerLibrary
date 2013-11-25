@@ -265,13 +265,15 @@ namespace Tinker{
 	namespace LOG{
 		template <class T>
 		void displayVect3d(const Vect3d<T>& v, AbstractLog* log){
-			log->display("V[");
-			log->display(v[0]);
-			log->display(";");
-			log->display(v[1]);
-			log->display(";");
-			log->display(v[2]);
-			log->display("]");
+			#ifdef ENABLE_LOGGER
+				log->display("V[");
+				log->display(v[0]);
+				log->display(";");
+				log->display(v[1]);
+				log->display(";");
+				log->display(v[2]);
+				log->display("]");
+			#endif
 		}
 	}
 

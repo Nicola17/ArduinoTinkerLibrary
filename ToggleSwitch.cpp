@@ -7,9 +7,7 @@ namespace Tinker{
 		_log(0)
 	{}
 	void ToggleSwitch::setPin(int pin){
-		if(_log!=0){
-			_log->display("Setting on/off actuator pin: "); 	_log->display(_pin); 	_log->endline();
-		}
+		SECURE_LOG_VAL(_log,"Setting toggle switch pin",_pin);
 		_pin = pin;
 	}
 	int ToggleSwitch::pin()const{
@@ -19,9 +17,7 @@ namespace Tinker{
 		return (digitalRead(_pin)== HIGH);
 	}
    void ToggleSwitch::initialize(){
-		if(_log!=0){
-			_log->display("Initializing on/off actuator on pin "); 	_log->display(_pin); 	_log->endline();
-		}
+		SECURE_LOG_VAL(_log,"Initializing toggle switch on pin",_pin);
 		pinMode(_pin, INPUT);  
    }	
 }

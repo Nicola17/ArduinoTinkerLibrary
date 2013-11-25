@@ -2,6 +2,7 @@
 #define ABSTRACTLOG_H
 
 #include <Arduino.h>
+#include "configuration\Configuration.h"
 
 namespace Tinker{
 
@@ -32,9 +33,24 @@ namespace Tinker{
 		virtual void clear()=0;
 	};
 }
-
-#define SECURE_LOG(_logptr,val){if(_logptr!=0){_logptr->display(val);_logptr->endline();}}
-#define SECURE_LOG_VAL(_logptr,name,val){if(_logptr!=0){_logptr->display(name);_logptr->display(": ");_logptr->display(val);_logptr->endline();}}
-#define SECURE_LOG_CLEAR(_logptr){if(_logptr!=0){_logptr->clear();}}
+#ifdef ENABLE_LOGGER
+	#define SECURE_LOG(_logptr,val){if(_logptr!=0){_logptr->display(val);_logptr->endline();}}
+	#define SECURE_LOG_VAL(_logptr,name,val){if(_logptr!=0){_logptr->display(name);_logptr->display(": ");_logptr->display(val);_logptr->endline();}}
+	#define SECURE_LOG_CLEAR(_logptr){if(_logptr!=0){_logptr->clear();}}
+	#define SECURE_LOG_ONOFF(_logptr,name){\
+		if(_logptr!=0){\
+			if(v){\
+				_logptr->display(name);_logptr->display(": ON");_log->endline();\
+			}else{\
+				_logptr->display(name);_logptr->display(": OFF");_log->endline();\
+			}\
+		}\
+	}
+#else
+	#define SECURE_LOG(_logptr,val){}
+	#define SECURE_LOG_VAL(_logptr,name,val){}
+	#define SECURE_LOG_CLEAR(_logptr){}
+	#define SECURE_LOG_ONOFF(_logptr,name){}
+#endif
 
 #endif
