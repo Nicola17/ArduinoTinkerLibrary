@@ -27,10 +27,9 @@ public:
 	enum Mode{
 		RandomAnimation = 0,
 		Compass = 1,
-		Accellerometer = 2,
-		GPS = 3, 
-		Clock = 4,
-		Temperature = 5
+		Clock = 2,
+		Temperature = 3,
+		Sleep = 4
 	};
 	
 public:
@@ -51,6 +50,8 @@ public:
 	void setTime(uint32_t h, uint32_t m, uint32_t s);
 	
 	void displayTemperature();
+
+	void displayTorch();
 	
 	void update();
 	
@@ -62,17 +63,21 @@ private:
 	int8_t	_nStatus;
 	int8_t	_currentStatus;
 	int8_t	_brightness;
+	int8_t	_torchBrightness;
 	
 	color_type _transitionColor;
 	color_type _magnColor;
 	
-	//TimedButton 	_syncroButton;
+	TimedButton 	_syncroButton;
+	TimedButton 	_torchButton;
 	StatusSwitcher 	_statusSwitcher;
 	Display 		_display;
 	
 	MagSensor		_magSensor;
 	MagDisplay 		_magDisplay;
 	TemperatureSensor _tmpSensor;
+
+	boolean _torchEnabled;
 
 #ifdef SERIAL_COMM
 	SerialLog		_serialLog;

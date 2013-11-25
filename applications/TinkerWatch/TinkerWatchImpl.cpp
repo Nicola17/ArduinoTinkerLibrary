@@ -12,7 +12,8 @@ TinkerWatchImpl::TinkerWatchImpl():
 	_display(9),
 	_magDisplay(9),
 	_brightness(30),
-	_nStatus(6),
+	_torchBrightness(120),
+	_nStatus(5),
 	_currentStatus(0),
 	_transitionColor(255,150,0),
 	_magnColor(255,0,255),
@@ -25,7 +26,8 @@ TinkerWatchImpl::TinkerWatchImpl():
 	_sigmaMin(Display::radBetweenPixels()/2),
 	_sigmaHour(Display::radBetweenPixels()/1.5),
 	_lastTimeExecMillis(0),
-	_lastTimeDayMillis(0)
+	_lastTimeDayMillis(0),
+	_torchEnabled(false)
 {}
 	
 void TinkerWatchImpl::initialize(){
@@ -37,6 +39,15 @@ void TinkerWatchImpl::initialize(){
 	_statusSwitcher.switcher().initialize(100,2000);
 	_statusSwitcher.setNumberOfStatus(_nStatus);
 	_statusSwitcher.setStatus(_currentStatus);
+	STOP_SKETCH_ON_EXCEPTION();
+
+	_syncroButton.setPin(_switchPin);
+	_syncroButton.initialize(10000,30000);
+	STOP_SKETCH_ON_EXCEPTION();
+
+	_torchButton.setPin(_switchPin);
+	_torchButton.initialize(5000,10000);
+	STOP_SKETCH_ON_EXCEPTION();
 	
 	_magSensor.initialize();
 	STOP_SKETCH_ON_EXCEPTION();
@@ -46,7 +57,7 @@ void TinkerWatchImpl::initialize(){
 	STOP_SKETCH_ON_EXCEPTION();
 	
 	_tmpSensor.setPin(6);
-	_tmpSensor.setVoltageRef(3.3);
+	_tmpSensor.setVoltageRef(1.3);
 	_tmpSensor.initialize();
 	STOP_SKETCH_ON_EXCEPTION();
 	
@@ -68,6 +79,7 @@ void TinkerWatchImpl::startAnimation(){
 }
 
 void TinkerWatchImpl::changeStatusAnimation(){
+	_display.setBrightness(_brightness);
 	uint8_t nPxl(16);
 	_display.reset();
 	for(int i = 0; i < 16; ++i){
@@ -152,20 +164,36 @@ void TinkerWatchImpl::displayTemperature(){
 	delay(100);
 	
 }
+void TinkerWatchImpl::displayTorch(){
+	_display.setBrightness(_torchBrightness);
+	_display.setColor(color_type(255));
+	_display.show();
+}
 
 void TinkerWatchImpl::update(){
 	STOP_SKETCH_ON_EXCEPTION();
 	
+
+	if(_torchButton.enabled()){
+		_torchEnabled = true;
+		if(_torchEnabled){
+			displayTorch();
+		}
+	}
 	_statusSwitcher.refresh();
 	StatusSwitcher::status_type s = _statusSwitcher.status();
 	if(s!=_currentStatus){
 		_currentStatus = s;
+		_torchEnabled = false;
 		changeStatusAnimation();
 	}
+
+	if(_torchEnabled){
+		return;
+	}
+
 	switch(_currentStatus){
 		case Compass: 			compass(); 			break;
-		case Accellerometer: break;
-		case GPS: break;
 		case Clock: 			displayTime(); 		break;
 		case Temperature:		displayTemperature(); break;
 		case RandomAnimation: 	randomAnimation(); 	break;
