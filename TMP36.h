@@ -10,7 +10,7 @@ namespace Tinker{
 	/*!
 		\author Nicola Pezzotti
 	*/
-	class TMP36: public AbstractSensor{
+	class TMP36: public AbstractScalarSensor{
 	public:
 		//! Creates an unitialized TMP36 sensor. 
 		TMP36():_log(0),_voltageRef(0){}
