@@ -1,5 +1,8 @@
+#ifdef SERIAL_COMM
+	#include "SerialLog.h"
+#endif
 #include "ToggleSwitch.h"
-#include "SerialLog.h"
+
 #include "SequentialStatusSwitcher.h"
 #include "TimedButton.h"
 #include "NeoPixelCircularDisplay.h"
@@ -7,9 +10,13 @@
 #include "Vect2dCircularDisplay.h"
 #include "TMP36.h"
 
+
+
 class TinkerWatchImpl{
 public:
+#ifdef SERIAL_COMM
 	typedef Tinker::SerialLog 	SerialLog;
+#endif
 	typedef Tinker::TimedButton TimedButton;
 	typedef Tinker::SequentialStatusSwitcher<Tinker::TimedButton>	StatusSwitcher;
 	typedef Tinker::NeoPixelCircularDisplay<16> Display;
@@ -62,10 +69,14 @@ private:
 	//TimedButton 	_syncroButton;
 	StatusSwitcher 	_statusSwitcher;
 	Display 		_display;
-	SerialLog		_serialLog;
+	
 	MagSensor		_magSensor;
 	MagDisplay 		_magDisplay;
 	TemperatureSensor _tmpSensor;
+
+#ifdef SERIAL_COMM
+	SerialLog		_serialLog;
+#endif
 	
 	//Time
 	uint32_t _lastTimeExecMillis;

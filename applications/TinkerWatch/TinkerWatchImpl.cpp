@@ -30,7 +30,9 @@ TinkerWatchImpl::TinkerWatchImpl():
 	
 void TinkerWatchImpl::initialize(){
 	delay(5000);
+#ifdef SERIAL_COMM
 	_statusSwitcher._log = &_serialLog;
+#endif
 	_statusSwitcher.switcher().setPin(_switchPin);
 	_statusSwitcher.switcher().initialize(100,2000);
 	_statusSwitcher.setNumberOfStatus(_nStatus);
@@ -120,24 +122,27 @@ void TinkerWatchImpl::displayTime(){
 }
 
 void TinkerWatchImpl::setTime(uint32_t h, uint32_t m, uint32_t s){
+#ifdef SERIAL_COMM
 	_serialLog.display("Set time");_serialLog.endline();
 	_serialLog.display("h:");_serialLog.display(h);_serialLog.endline();
 	_serialLog.display("m:");_serialLog.display(m);_serialLog.endline();
 	_serialLog.display("s:");_serialLog.display(s);_serialLog.endline();
+#endif
 	_lastTimeExecMillis = millis();
 	_lastTimeDayMillis = s*_millsSecond + m*_millsMinute + h*_millsHour;
 }
 
 void TinkerWatchImpl::displayTemperature(){
 //TODO
-	_tmpSensor._log = &_serialLog;
+	
+	//_tmpSensor._log = &_serialLog;
 	float temp = _tmpSensor.value();
-	_serialLog.display(temp);_serialLog.endline();
+	//_serialLog.display(temp);_serialLog.endline();
 	int intTemp(temp);
 	int u(intTemp%10);
 	int d(intTemp/10);
-	_serialLog.display(u);_serialLog.endline();
-	_serialLog.display(d);_serialLog.endline();
+	//_serialLog.display(u);_serialLog.endline();
+	//_serialLog.display(d);_serialLog.endline();
 	_display.reset();
 	for(int i = 0; i < u; ++i)
 		_display.setColor(i,color_type(0,255,0),true);
