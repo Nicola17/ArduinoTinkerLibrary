@@ -3,11 +3,6 @@
 
 #include "AbstractLog.h"
 
-/****************************************
- * ToggleSwitch
- * Once initialized return the status of
- * a toggle switch
- ****************************************/
 namespace Tinker{
 
 	//! A class to handle a toggle switch
