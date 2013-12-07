@@ -20,33 +20,44 @@ namespace Tinker{
         enum TimeUnit{Millisecond, Second, Minute, Hour, Day};
     public:
 	    //! Creates an empty timer. 
-	    /*!
-		    The timeout will be set to 0. Use setTimeout() to specify a timeout threshold
-	    */
         Timer():_startTimeStamp(0),_stopTimeStamp(0),_isRunning(false){}
-
 	    //! Starts the timer.
         void start();
-
 	    //! Stops the timer.
         void stop();
-
         //! Returns the elapsed time.
         /*!
             \warning Timer must be stopped
         */
         float elapsedTime(TimeUnit unit = Millisecond)const;
-
         //!Returns timer status
         boolean isRunning()const;
-	
-
   
     private:
         uint32_t _startTimeStamp;
         uint32_t _stopTimeStamp; 
         boolean _isRunning;
+    };
+
+    //! A scoped timer
+    /*!
+    This class permits to measure time elapsed between this object creation and destruction
+    \author Nicola Pezzotti
+    */
+    class ScopedTimer{
+    public:
+	    //! Creates the scoped timer. 
+        ScopedTimer(float& time, Timer::TimeUnit unit = Timer::Millisecond);
+	    //! Destroys the scoped timer and compute the elapsed time. 
+        ~ScopedTimer();
+	
+    private:
+        float&          _time;
+        Timer::TimeUnit _unit;
+        Timer           _timer;
     };	
+
+
 }
 
 #endif

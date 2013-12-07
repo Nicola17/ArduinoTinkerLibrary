@@ -32,4 +32,16 @@ namespace Tinker{
     }
 	
 
+
+    ScopedTimer::ScopedTimer(float& time, Timer::TimeUnit unit):
+        _time(time),
+        _unit(unit)
+    {
+        _timer.start();
+    }
+    ScopedTimer::~ScopedTimer(){
+        _timer.stop();
+        _time = _timer.elapsedTime(_unit);
+    }
+
 }
