@@ -1,7 +1,7 @@
 #ifndef ABSTRACTSENSOR_H
 #define ABSTRACTSENSOR_H
 
-#include "vect3d.h"
+#include "Vect3d.h"
 
 namespace Tinker{
 
