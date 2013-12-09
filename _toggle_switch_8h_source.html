@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.5"/>
-<title>F:/Development/Arduino/libraries/ArduinoTinkerLibrary/ToggleSwitch.h Source File</title>
+<title>Arduino Tinker Library: ToggleSwitch.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,6 +22,10 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="tinkerLogo.png"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Arduino Tinker Library
+   </div>
+  </td>
  </tr>
  </tbody>
 </table>
@@ -65,7 +69,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -89,39 +93,44 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;AbstractLog.h&quot;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">/****************************************</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> * ToggleSwitch</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> * Once initialized return the status of</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> * a toggle switch</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> ****************************************/</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">namespace </span>Tinker{</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">namespace </span>Tinker{</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
 <div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="class_tinker_1_1_toggle_switch.html">   13</a></span>&#160;    <span class="keyword">class </span><a class="code" href="class_tinker_1_1_toggle_switch.html">ToggleSwitch</a>{</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        <a class="code" href="class_tinker_1_1_toggle_switch.html">ToggleSwitch</a>():_log(0){}</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        <a class="code" href="class_tinker_1_1_toggle_switch.html">ToggleSwitch</a>(<span class="keywordtype">int</span> pin);</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        <span class="keywordtype">void</span> setPin(<span class="keywordtype">int</span> pin);</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        <span class="keywordtype">int</span> pin()<span class="keyword">const</span>;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <span class="keywordtype">void</span> initialize();</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">boolean</span> enabled()<span class="keyword">const</span>;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keywordtype">int</span> _pin;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <a class="code" href="class_tinker_1_1_abstract_log.html">AbstractLog</a>* _log;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    };</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;}</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="class_tinker_1_1_abstract_log_html"><div class="ttname"><a href="class_tinker_1_1_abstract_log.html">Tinker::AbstractLog</a></div><div class="ttdoc">Abstract interface for any logger. </div><div class="ttdef"><b>Definition:</b> AbstractLog.h:13</div></div>
-<div class="ttc" id="class_tinker_1_1_toggle_switch_html"><div class="ttname"><a href="class_tinker_1_1_toggle_switch.html">Tinker::ToggleSwitch</a></div><div class="ttdef"><b>Definition:</b> ToggleSwitch.h:13</div></div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="class_tinker_1_1_toggle_switch.html#a3fef308c205c81a3f73ba8b484a5e95b">   16</a></span>&#160;        <a class="code" href="class_tinker_1_1_toggle_switch.html#a3fef308c205c81a3f73ba8b484a5e95b">ToggleSwitch</a>(uint16_t <a class="code" href="class_tinker_1_1_toggle_switch.html#a65105e7162611bf74f994bc5efe303e5">pin</a> = -1):_log(0),_pin(<a class="code" href="class_tinker_1_1_toggle_switch.html#a65105e7162611bf74f994bc5efe303e5">pin</a>){}</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        <span class="keywordtype">int</span> <a class="code" href="class_tinker_1_1_toggle_switch.html#a65105e7162611bf74f994bc5efe303e5">pin</a>()<span class="keyword">const</span>;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_tinker_1_1_toggle_switch.html#a1ba55095535a83e5f8253b1f21141ddb">setPin</a>(uint16_t <a class="code" href="class_tinker_1_1_toggle_switch.html#a65105e7162611bf74f994bc5efe303e5">pin</a>);</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="keywordtype">boolean</span> <a class="code" href="class_tinker_1_1_toggle_switch.html#ab71918791f0bc4dcdf30eb2bdca7136b">enabledOnLow</a>()<span class="keyword">const</span>;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keywordtype">boolean</span> <a class="code" href="class_tinker_1_1_toggle_switch.html#aa02c010445ea3bb35fd0cbd648a65ed3">pullUpResistor</a>()<span class="keyword">const</span>;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_tinker_1_1_toggle_switch.html#aa1f1be9b7e5539f6f76b3c03cd97ec0d">initialize</a>(<span class="keywordtype">bool</span> <a class="code" href="class_tinker_1_1_toggle_switch.html#ab71918791f0bc4dcdf30eb2bdca7136b">enabledOnLow</a> = <span class="keyword">false</span>, <span class="keywordtype">bool</span> <a class="code" href="class_tinker_1_1_toggle_switch.html#aa02c010445ea3bb35fd0cbd648a65ed3">pullUpResistor</a> = <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">boolean</span> <a class="code" href="class_tinker_1_1_toggle_switch.html#a10b8b630a73d51eb0e11aa85edd041e7">enabled</a>()<span class="keyword">const</span>;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        uint16_t _pin;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <span class="keywordtype">bool</span> _enabledOnLow;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <span class="keywordtype">bool</span> _pullUpResistor;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <a class="code" href="class_tinker_1_1_abstract_log.html">AbstractLog</a>* _log;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    };</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;}</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="class_tinker_1_1_toggle_switch_html_a3fef308c205c81a3f73ba8b484a5e95b"><div class="ttname"><a href="class_tinker_1_1_toggle_switch.html#a3fef308c205c81a3f73ba8b484a5e95b">Tinker::ToggleSwitch::ToggleSwitch</a></div><div class="ttdeci">ToggleSwitch(uint16_t pin=-1)</div><div class="ttdoc">Creates an unitialize toggle switch. </div><div class="ttdef"><b>Definition:</b> ToggleSwitch.h:16</div></div>
+<div class="ttc" id="class_tinker_1_1_abstract_log_html"><div class="ttname"><a href="class_tinker_1_1_abstract_log.html">Tinker::AbstractLog</a></div><div class="ttdoc">Abstract interface for any logger. </div><div class="ttdef"><b>Definition:</b> AbstractLog.h:14</div></div>
+<div class="ttc" id="class_tinker_1_1_toggle_switch_html_aa1f1be9b7e5539f6f76b3c03cd97ec0d"><div class="ttname"><a href="class_tinker_1_1_toggle_switch.html#aa1f1be9b7e5539f6f76b3c03cd97ec0d">Tinker::ToggleSwitch::initialize</a></div><div class="ttdeci">void initialize(bool enabledOnLow=false, bool pullUpResistor=false)</div><div class="ttdoc">Initialiazes the toggle switch. </div><div class="ttdef"><b>Definition:</b> ToggleSwitch.cpp:21</div></div>
+<div class="ttc" id="class_tinker_1_1_toggle_switch_html"><div class="ttname"><a href="class_tinker_1_1_toggle_switch.html">Tinker::ToggleSwitch</a></div><div class="ttdoc">A class to handle a toggle switch. </div><div class="ttdef"><b>Definition:</b> ToggleSwitch.h:13</div></div>
+<div class="ttc" id="class_tinker_1_1_toggle_switch_html_a10b8b630a73d51eb0e11aa85edd041e7"><div class="ttname"><a href="class_tinker_1_1_toggle_switch.html#a10b8b630a73d51eb0e11aa85edd041e7">Tinker::ToggleSwitch::enabled</a></div><div class="ttdeci">virtual boolean enabled() const </div><div class="ttdoc">Returns toggle switch status. </div><div class="ttdef"><b>Definition:</b> ToggleSwitch.cpp:10</div></div>
+<div class="ttc" id="class_tinker_1_1_toggle_switch_html_ab71918791f0bc4dcdf30eb2bdca7136b"><div class="ttname"><a href="class_tinker_1_1_toggle_switch.html#ab71918791f0bc4dcdf30eb2bdca7136b">Tinker::ToggleSwitch::enabledOnLow</a></div><div class="ttdeci">boolean enabledOnLow() const </div><div class="ttdoc">Returns true if the switch is enabled on LOW. </div><div class="ttdef"><b>Definition:</b> ToggleSwitch.cpp:15</div></div>
+<div class="ttc" id="class_tinker_1_1_toggle_switch_html_aa02c010445ea3bb35fd0cbd648a65ed3"><div class="ttname"><a href="class_tinker_1_1_toggle_switch.html#aa02c010445ea3bb35fd0cbd648a65ed3">Tinker::ToggleSwitch::pullUpResistor</a></div><div class="ttdeci">boolean pullUpResistor() const </div><div class="ttdoc">Returns true if pull up resistor is enabled. </div><div class="ttdef"><b>Definition:</b> ToggleSwitch.cpp:18</div></div>
+<div class="ttc" id="class_tinker_1_1_toggle_switch_html_a1ba55095535a83e5f8253b1f21141ddb"><div class="ttname"><a href="class_tinker_1_1_toggle_switch.html#a1ba55095535a83e5f8253b1f21141ddb">Tinker::ToggleSwitch::setPin</a></div><div class="ttdeci">void setPin(uint16_t pin)</div><div class="ttdoc">Sets switch pin. </div><div class="ttdef"><b>Definition:</b> ToggleSwitch.cpp:4</div></div>
+<div class="ttc" id="class_tinker_1_1_toggle_switch_html_a65105e7162611bf74f994bc5efe303e5"><div class="ttname"><a href="class_tinker_1_1_toggle_switch.html#a65105e7162611bf74f994bc5efe303e5">Tinker::ToggleSwitch::pin</a></div><div class="ttdeci">int pin() const </div><div class="ttdoc">Returns current switch pin. </div><div class="ttdef"><b>Definition:</b> ToggleSwitch.cpp:7</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Nov 22 2013 21:31:49 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Dec 9 2013 21:35:44 for Arduino Tinker Library by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>

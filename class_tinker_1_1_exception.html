@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.5"/>
-<title>Tinker::Exception Class Reference</title>
+<title>Arduino Tinker Library: Tinker::Exception Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,6 +22,10 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="tinkerLogo.png"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Arduino Tinker Library
+   </div>
+  </td>
  </tr>
  </tbody>
 </table>
@@ -68,7 +72,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -84,34 +88,76 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="class_tinker_1_1_exception-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Tinker::Exception Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>A static class used to handle exceptions.  
+ <a href="class_tinker_1_1_exception.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_exception_8h_source.html">Exception.h</a>&gt;</code></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr class="memitem:ab83bf0f763033fd7d55cb152ce071568"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab83bf0f763033fd7d55cb152ce071568"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>throwException</b> ()</td></tr>
-<tr class="separator:ab83bf0f763033fd7d55cb152ce071568"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:a9b52e197c9cac874827cbaf1fa4e8c72"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><b>Type</b> { <b>None</b> =0, 
+<b>Logic</b> =1, 
+<b>Runtime</b> =2
+ }</td></tr>
+<tr class="separator:a9b52e197c9cac874827cbaf1fa4e8c72"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a111b3cd6399374e5d701f302b3960fe3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a111b3cd6399374e5d701f302b3960fe3"></a>
+typedef unsigned long&#160;</td><td class="memItemRight" valign="bottom"><b>time_type</b></td></tr>
+<tr class="separator:a111b3cd6399374e5d701f302b3960fe3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a19304bda05d4157de9a27b94520b370c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a19304bda05d4157de9a27b94520b370c"></a>
+typedef String&#160;</td><td class="memItemRight" valign="bottom"><b>string_type</b></td></tr>
+<tr class="separator:a19304bda05d4157de9a27b94520b370c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a062919d3d9da301c7f179971417afe91"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a062919d3d9da301c7f179971417afe91"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tinker_1_1_exception.html#a062919d3d9da301c7f179971417afe91">throwException</a> (Type <a class="el" href="class_tinker_1_1_exception.html#a1549a08b07b86de34143a968a1c8e8da">type</a>, string_type &amp;<a class="el" href="class_tinker_1_1_exception.html#acc84ffc9ffb7efb6fb89b7f91da7a25d">message</a>)</td></tr>
+<tr class="memdesc:a062919d3d9da301c7f179971417afe91"><td class="mdescLeft">&#160;</td><td class="mdescRight">Throws an exception. <br/></td></tr>
+<tr class="separator:a062919d3d9da301c7f179971417afe91"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a09e8f6b5034832e3ab9549d1aada4b08"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a09e8f6b5034832e3ab9549d1aada4b08"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tinker_1_1_exception.html#a09e8f6b5034832e3ab9549d1aada4b08">throwException</a> (Type <a class="el" href="class_tinker_1_1_exception.html#a1549a08b07b86de34143a968a1c8e8da">type</a>, const char *<a class="el" href="class_tinker_1_1_exception.html#acc84ffc9ffb7efb6fb89b7f91da7a25d">message</a>)</td></tr>
+<tr class="memdesc:a09e8f6b5034832e3ab9549d1aada4b08"><td class="mdescLeft">&#160;</td><td class="mdescRight">Throws an exception. <br/></td></tr>
+<tr class="separator:a09e8f6b5034832e3ab9549d1aada4b08"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a196009cab503081fb0e272a28c1adde8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a196009cab503081fb0e272a28c1adde8"></a>
-static bool&#160;</td><td class="memItemRight" valign="bottom"><b>exceptionThrown</b> ()</td></tr>
+static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tinker_1_1_exception.html#a196009cab503081fb0e272a28c1adde8">exceptionThrown</a> ()</td></tr>
+<tr class="memdesc:a196009cab503081fb0e272a28c1adde8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if an exception has been thrown. <br/></td></tr>
 <tr class="separator:a196009cab503081fb0e272a28c1adde8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5138ea8d72efc4e60345ebaae3bffc93"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5138ea8d72efc4e60345ebaae3bffc93"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tinker_1_1_exception.html#a5138ea8d72efc4e60345ebaae3bffc93">reset</a> ()</td></tr>
+<tr class="memdesc:a5138ea8d72efc4e60345ebaae3bffc93"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets exception handler. <br/></td></tr>
+<tr class="separator:a5138ea8d72efc4e60345ebaae3bffc93"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1549a08b07b86de34143a968a1c8e8da"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1549a08b07b86de34143a968a1c8e8da"></a>
+static Type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tinker_1_1_exception.html#a1549a08b07b86de34143a968a1c8e8da">type</a> ()</td></tr>
+<tr class="memdesc:a1549a08b07b86de34143a968a1c8e8da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns exception type. <br/></td></tr>
+<tr class="separator:a1549a08b07b86de34143a968a1c8e8da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa10db0327bf8b7cbeb108e06d7f0b8b0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa10db0327bf8b7cbeb108e06d7f0b8b0"></a>
+static time_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tinker_1_1_exception.html#aa10db0327bf8b7cbeb108e06d7f0b8b0">time</a> ()</td></tr>
+<tr class="memdesc:aa10db0327bf8b7cbeb108e06d7f0b8b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns time in millis from sketch start to the current exception. <br/></td></tr>
+<tr class="separator:aa10db0327bf8b7cbeb108e06d7f0b8b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc84ffc9ffb7efb6fb89b7f91da7a25d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acc84ffc9ffb7efb6fb89b7f91da7a25d"></a>
+static const string_type &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tinker_1_1_exception.html#acc84ffc9ffb7efb6fb89b7f91da7a25d">message</a> ()</td></tr>
+<tr class="memdesc:acc84ffc9ffb7efb6fb89b7f91da7a25d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns exception message. <br/></td></tr>
+<tr class="separator:acc84ffc9ffb7efb6fb89b7f91da7a25d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>The documentation for this class was generated from the following files:<ul>
-<li>F:/Development/Arduino/libraries/ArduinoTinkerLibrary/<a class="el" href="_exception_8h_source.html">Exception.h</a></li>
-<li>F:/Development/Arduino/libraries/ArduinoTinkerLibrary/Exception.cpp</li>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>A static class used to handle exceptions. </p>
+<p>This class permits to uset something similar to C++ try/catch in your arduino code </p>
+<dl class="section author"><dt>Author</dt><dd>Nicola Pezzotti </dd></dl>
+</div><hr/>The documentation for this class was generated from the following files:<ul>
+<li><a class="el" href="_exception_8h_source.html">Exception.h</a></li>
+<li>Exception.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Nov 22 2013 21:31:50 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Dec 9 2013 21:35:46 for Arduino Tinker Library by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>

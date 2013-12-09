@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.5"/>
-<title>F:/Development/Arduino/libraries/ArduinoTinkerLibrary/Exception.h Source File</title>
+<title>Arduino Tinker Library: Exception.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,6 +22,10 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="tinkerLogo.png"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Arduino Tinker Library
+   </div>
+  </td>
  </tr>
  </tbody>
 </table>
@@ -65,7 +69,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -87,24 +91,97 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef EXCEPTION_H</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define EXCEPTION_H</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="keyword">namespace </span>Tinker{</div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
-<div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="class_tinker_1_1_exception.html">    6</a></span>&#160;    <span class="keyword">class </span><a class="code" href="class_tinker_1_1_exception.html">Exception</a>{</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;        <span class="keywordtype">void</span> throwException();</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">bool</span> exceptionThrown();</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">bool</span> _exceptionThrown;</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    };</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;}</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="class_tinker_1_1_exception_html"><div class="ttname"><a href="class_tinker_1_1_exception.html">Tinker::Exception</a></div><div class="ttdef"><b>Definition:</b> Exception.h:6</div></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;Arduino.h&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">namespace </span>Tinker{</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="class_tinker_1_1_exception.html">   12</a></span>&#160;    <span class="keyword">class </span><a class="code" href="class_tinker_1_1_exception.html">Exception</a>{</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        <span class="keyword">enum</span> Type{None=0,Logic=1,Runtime=2};</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        <span class="keyword">typedef</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> time_type;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        <span class="keyword">typedef</span> String string_type;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="class_tinker_1_1_exception.html#a062919d3d9da301c7f179971417afe91">throwException</a>(Type <a class="code" href="class_tinker_1_1_exception.html#a1549a08b07b86de34143a968a1c8e8da">type</a>, string_type&amp; <a class="code" href="class_tinker_1_1_exception.html#acc84ffc9ffb7efb6fb89b7f91da7a25d">message</a>);</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="class_tinker_1_1_exception.html#a062919d3d9da301c7f179971417afe91">throwException</a>(Type type, <span class="keyword">const</span> <span class="keywordtype">char</span>* message);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="class_tinker_1_1_exception.html#a196009cab503081fb0e272a28c1adde8">exceptionThrown</a>();</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="class_tinker_1_1_exception.html#a5138ea8d72efc4e60345ebaae3bffc93">reset</a>();</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="keyword">static</span> Type <a class="code" href="class_tinker_1_1_exception.html#a1549a08b07b86de34143a968a1c8e8da">type</a>();</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keyword">static</span> time_type <a class="code" href="class_tinker_1_1_exception.html#aa10db0327bf8b7cbeb108e06d7f0b8b0">time</a>();</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <span class="keyword">static</span> <span class="keyword">const</span> string_type&amp; <a class="code" href="class_tinker_1_1_exception.html#acc84ffc9ffb7efb6fb89b7f91da7a25d">message</a>();</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">bool</span>         _exceptionThrown;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="keyword">static</span> Type         _type; </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="keyword">static</span> time_type    _time;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keyword">static</span> string_type  _message;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    };</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;}</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor">#ifdef SAFE_CODE</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor"></span><span class="preprocessor">    #define TNK_THROW(type,message){Tinker::Exception::throwException(type,message);}</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor"></span><span class="preprocessor">    #define TNK_THROW_LOGIC(message){Tinker::Exception::throwException(Tinker::Exception::Logic,message);}</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor"></span><span class="preprocessor">    #define TNK_THROW_RUNTIME(message){Tinker::Exception::throwException(Tinker::Exception::Runtime,message);}</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="preprocessor">    #define TNK_ASSERT(cond,type,message){if(!(cond)){Tinker::Exception::throwException(type,message);}}</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor"></span><span class="preprocessor">    #define TNK_ASSERT_LOGIC(cond,message){if(!(cond)){Tinker::Exception::throwException(Tinker::Exception::Logic,message);}}</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="preprocessor"></span><span class="preprocessor">    #define TNK_ASSERT_RUNTIME(cond,message){if(!(cond)){Tinker::Exception::throwException(Tinker::Exception::Runtime,message);}}</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="preprocessor"></span>        </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="preprocessor">    #define TNK_THROW_RTN(type,message){TNK_THROW(type,message);return;}</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="preprocessor"></span><span class="preprocessor">    #define TNK_THROW_LOGIC_RTN(message){TNK_THROW_LOGIC(message);return;}</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="preprocessor"></span><span class="preprocessor">    #define TNK_THROW_RUNTIME_RTN(message){TNK_THROW_RUNTIME(message);return;}</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="preprocessor"></span><span class="preprocessor">    #define TNK_THROW_RTNV(type,message,val){TNK_THROW(type,message);return val;}</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="preprocessor"></span><span class="preprocessor">    #define TNK_THROW_LOGIC_RTNV(message,val){TNK_THROW_LOGIC(message);return val;}</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="preprocessor"></span><span class="preprocessor">    #define TNK_THROW_RUNTIME_RTNV(message,val){TNK_THROW_RUNTIME(message);return val;}</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="preprocessor">    #define TNK_ASSERT_RTN(cond,type,message){TNK_ASSERT(cond,type,message);return;}</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="preprocessor"></span><span class="preprocessor">    #define TNK_ASSERT_LOGIC_RTN(cond,message){TNK_ASSERT_LOGIC(cond,message);return;}</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="preprocessor"></span><span class="preprocessor">    #define TNK_ASSERT_RUNTIME_RTN(cond,message){TNK_ASSERT_RUNTIME(cond,message);return;}</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="preprocessor"></span><span class="preprocessor">    #define TNK_ASSERT_RTNV(cond,type,message,val){TNK_ASSERT(cond,type,message);return val;}</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="preprocessor"></span><span class="preprocessor">    #define TNK_ASSERT_LOGIC_RTNV(cond,message,val){TNK_ASSERT_LOGIC(cond,message);return val;}</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="preprocessor"></span><span class="preprocessor">    #define TNK_ASSERT_RUNTIME_RTNV(cond,message,val){TNK_ASSERT_RUNTIME(cond,message);return val;}</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="preprocessor">    #define STOP_SKETCH_ON_EXCEPTION(){if(Tinker::Exception::exceptionThrown())return;}</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="preprocessor"></span><span class="preprocessor">    #define STOP_SKETCH_ON_EXCEPTION(val){if(Tinker::Exception::exceptionThrown())return val;}</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="preprocessor"></span><span class="preprocessor">    #define TNK_THROW(type,message){}</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="preprocessor"></span><span class="preprocessor">    #define TNK_THROW_LOGIC(message){}</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="preprocessor"></span><span class="preprocessor">    #define TNK_THROW_RUNTIME(message){}</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="preprocessor">    #define TNK_ASSERT(cond,type,message){}</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="preprocessor"></span><span class="preprocessor">    #define TNK_ASSERT_LOGIC(cond,message){}</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="preprocessor"></span><span class="preprocessor">    #define TNK_ASSERT_RUNTIME(cond,message){}</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="preprocessor"></span>        </div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="preprocessor">    #define TNK_THROW_RTN(type,message){}</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="preprocessor"></span><span class="preprocessor">    #define TNK_THROW_LOGIC_RTN(message){}</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="preprocessor"></span><span class="preprocessor">    #define TNK_THROW_RUNTIME_RTN(message){}</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="preprocessor"></span><span class="preprocessor">    #define TNK_THROW_RTNV(type,message,val){}</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="preprocessor"></span><span class="preprocessor">    #define TNK_THROW_LOGIC_RTNV(message,val){}</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="preprocessor"></span><span class="preprocessor">    #define TNK_THROW_RUNTIME_RTNV(message,val){}</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="preprocessor">    #define TNK_ASSERT_RTN(cond,type,message){}</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="preprocessor"></span><span class="preprocessor">    #define TNK_ASSERT_LOGIC_RTN(cond,message){}</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="preprocessor"></span><span class="preprocessor">    #define TNK_ASSERT_RUNTIME_RTN(cond,message){}</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="preprocessor"></span><span class="preprocessor">    #define TNK_ASSERT_RTNV(cond,type,message,val){}</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="preprocessor"></span><span class="preprocessor">    #define TNK_ASSERT_LOGIC_RTNV(cond,message,val){}</span></div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="preprocessor"></span><span class="preprocessor">    #define TNK_ASSERT_RUNTIME_RTNV(cond,message,val){}</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="preprocessor">    #define STOP_SKETCH_ON_EXCEPTION(){}</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="preprocessor"></span><span class="preprocessor">    #define STOP_SKETCH_ON_EXCEPTION(val){}</span></div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="class_tinker_1_1_exception_html_a5138ea8d72efc4e60345ebaae3bffc93"><div class="ttname"><a href="class_tinker_1_1_exception.html#a5138ea8d72efc4e60345ebaae3bffc93">Tinker::Exception::reset</a></div><div class="ttdeci">static void reset()</div><div class="ttdoc">Resets exception handler. </div><div class="ttdef"><b>Definition:</b> Exception.cpp:27</div></div>
+<div class="ttc" id="class_tinker_1_1_exception_html_a1549a08b07b86de34143a968a1c8e8da"><div class="ttname"><a href="class_tinker_1_1_exception.html#a1549a08b07b86de34143a968a1c8e8da">Tinker::Exception::type</a></div><div class="ttdeci">static Type type()</div><div class="ttdoc">Returns exception type. </div><div class="ttdef"><b>Definition:</b> Exception.cpp:34</div></div>
+<div class="ttc" id="class_tinker_1_1_exception_html_a062919d3d9da301c7f179971417afe91"><div class="ttname"><a href="class_tinker_1_1_exception.html#a062919d3d9da301c7f179971417afe91">Tinker::Exception::throwException</a></div><div class="ttdeci">static void throwException(Type type, string_type &amp;message)</div><div class="ttdoc">Throws an exception. </div><div class="ttdef"><b>Definition:</b> Exception.cpp:10</div></div>
+<div class="ttc" id="class_tinker_1_1_exception_html"><div class="ttname"><a href="class_tinker_1_1_exception.html">Tinker::Exception</a></div><div class="ttdoc">A static class used to handle exceptions. </div><div class="ttdef"><b>Definition:</b> Exception.h:12</div></div>
+<div class="ttc" id="class_tinker_1_1_exception_html_a196009cab503081fb0e272a28c1adde8"><div class="ttname"><a href="class_tinker_1_1_exception.html#a196009cab503081fb0e272a28c1adde8">Tinker::Exception::exceptionThrown</a></div><div class="ttdeci">static bool exceptionThrown()</div><div class="ttdoc">Returns true if an exception has been thrown. </div><div class="ttdef"><b>Definition:</b> Exception.cpp:23</div></div>
+<div class="ttc" id="class_tinker_1_1_exception_html_aa10db0327bf8b7cbeb108e06d7f0b8b0"><div class="ttname"><a href="class_tinker_1_1_exception.html#aa10db0327bf8b7cbeb108e06d7f0b8b0">Tinker::Exception::time</a></div><div class="ttdeci">static time_type time()</div><div class="ttdoc">Returns time in millis from sketch start to the current exception. </div><div class="ttdef"><b>Definition:</b> Exception.cpp:37</div></div>
+<div class="ttc" id="class_tinker_1_1_exception_html_acc84ffc9ffb7efb6fb89b7f91da7a25d"><div class="ttname"><a href="class_tinker_1_1_exception.html#acc84ffc9ffb7efb6fb89b7f91da7a25d">Tinker::Exception::message</a></div><div class="ttdeci">static const string_type &amp; message()</div><div class="ttdoc">Returns exception message. </div><div class="ttdef"><b>Definition:</b> Exception.cpp:40</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Nov 22 2013 21:31:49 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Dec 9 2013 21:35:44 for Arduino Tinker Library by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>

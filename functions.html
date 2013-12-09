@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.5"/>
-<title>Class Members</title>
+<title>Arduino Tinker Library: Class Members</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,6 +22,10 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="tinkerLogo.png"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Arduino Tinker Library
+   </div>
+  </td>
  </tr>
  </tbody>
 </table>
@@ -77,12 +81,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="#index_d"><span>d</span></a></li>
       <li><a href="#index_e"><span>e</span></a></li>
       <li><a href="#index_i"><span>i</span></a></li>
+      <li><a href="#index_m"><span>m</span></a></li>
       <li><a href="#index_n"><span>n</span></a></li>
       <li><a href="#index_p"><span>p</span></a></li>
       <li><a href="#index_r"><span>r</span></a></li>
       <li><a href="#index_s"><span>s</span></a></li>
       <li><a href="#index_t"><span>t</span></a></li>
       <li><a href="#index_v"><span>v</span></a></li>
+      <li><a href="#index_0x7e"><span>~</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
@@ -91,7 +97,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -130,26 +136,66 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <h3><a class="anchor" id="index_e"></a>- e -</h3><ul>
+<li>elapsedTime()
+: <a class="el" href="class_tinker_1_1_timer.html#ae9f2c610dc1c7b7a7d7c7dcb85905608">Tinker::Timer</a>
+</li>
 <li>enabled()
 : <a class="el" href="class_tinker_1_1_abstract_actuator.html#a31e77b24dbe138e43168bfb19bd6c14b">Tinker::AbstractActuator</a>
+, <a class="el" href="class_tinker_1_1_toggle_switch.html#a10b8b630a73d51eb0e11aa85edd041e7">Tinker::ToggleSwitch</a>
 , <a class="el" href="class_tinker_1_1_digital_actuator.html#a7c87904ab8a255ce29ab18dd06e3f335">Tinker::DigitalActuator</a>
 </li>
+<li>enabledOnLow()
+: <a class="el" href="class_tinker_1_1_toggle_switch.html#ab71918791f0bc4dcdf30eb2bdca7136b">Tinker::ToggleSwitch</a>
+</li>
 <li>endline()
-: <a class="el" href="class_tinker_1_1_liquid_crystal_log.html#abb03273e6bfaade62ba74ca222d1b728">Tinker::LiquidCrystalLog</a>
-, <a class="el" href="class_tinker_1_1_abstract_log.html#acbea1aef1cc7d204709cc543be809195">Tinker::AbstractLog</a>
+: <a class="el" href="class_tinker_1_1_abstract_log.html#acbea1aef1cc7d204709cc543be809195">Tinker::AbstractLog</a>
 , <a class="el" href="class_tinker_1_1_serial_log.html#af55faf94ddc14474c9b0e46e594c9b6d">Tinker::SerialLog</a>
+, <a class="el" href="class_tinker_1_1_liquid_crystal_log.html#abb03273e6bfaade62ba74ca222d1b728">Tinker::LiquidCrystalLog</a>
+</li>
+<li>exceptionThrown()
+: <a class="el" href="class_tinker_1_1_exception.html#a196009cab503081fb0e272a28c1adde8">Tinker::Exception</a>
 </li>
 </ul>
 
 
 <h3><a class="anchor" id="index_i"></a>- i -</h3><ul>
+<li>id()
+: <a class="el" href="class_tinker_1_1_magnetic_sensor_l_s_m303.html#aaf345f41c2668e861bd91d5e1e972c04">Tinker::MagneticSensorLSM303</a>
+</li>
 <li>init()
 : <a class="el" href="class_tinker_1_1_circular_display_concept.html#ac0f4de46fef4259f82bf2ef0c997f0f1">Tinker::CircularDisplayConcept</a>
+</li>
+<li>initialize()
+: <a class="el" href="class_tinker_1_1_t_m_p36.html#a1ed3f6f58fb3d13b88ca5e85657e7bcd">Tinker::TMP36</a>
+, <a class="el" href="class_tinker_1_1_toggle_switch.html#aa1f1be9b7e5539f6f76b3c03cd97ec0d">Tinker::ToggleSwitch</a>
+, <a class="el" href="class_tinker_1_1_magnetic_sensor_l_s_m303.html#a12680dbfb41bd68b8b9e0db20ebe527d">Tinker::MagneticSensorLSM303</a>
+</li>
+<li>isInitialized()
+: <a class="el" href="class_tinker_1_1_magnetic_sensor_l_s_m303.html#a7c66302d311c38556a406135a2e39717">Tinker::MagneticSensorLSM303</a>
+</li>
+<li>isRunning()
+: <a class="el" href="class_tinker_1_1_timer.html#a44792c75c4d6317b44d93859bdf51566">Tinker::Timer</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_m"></a>- m -</h3><ul>
+<li>maxValue()
+: <a class="el" href="class_tinker_1_1_magnetic_sensor_l_s_m303.html#aa61ac033189db8f3a6aeac0869ab2022">Tinker::MagneticSensorLSM303</a>
+</li>
+<li>message()
+: <a class="el" href="class_tinker_1_1_exception.html#acc84ffc9ffb7efb6fb89b7f91da7a25d">Tinker::Exception</a>
+</li>
+<li>minValue()
+: <a class="el" href="class_tinker_1_1_magnetic_sensor_l_s_m303.html#a0c213bad3f0266c8dfc9123f10caeb0b">Tinker::MagneticSensorLSM303</a>
 </li>
 </ul>
 
 
 <h3><a class="anchor" id="index_n"></a>- n -</h3><ul>
+<li>name()
+: <a class="el" href="class_tinker_1_1_magnetic_sensor_l_s_m303.html#aa0f303b8cec7ca3bde5b849728db7f93">Tinker::MagneticSensorLSM303</a>
+</li>
 <li>numberOfStatus()
 : <a class="el" href="class_tinker_1_1_sequential_status_switcher.html#aeab98b02536582c814c45e523963ced4">Tinker::SequentialStatusSwitcher&lt; Switch &gt;</a>
 </li>
@@ -160,6 +206,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>percentage()
 : <a class="el" href="class_tinker_1_1_timeout.html#a688ab5288dd67e1d9293402b0cd7a053">Tinker::Timeout</a>
 </li>
+<li>pin()
+: <a class="el" href="class_tinker_1_1_t_m_p36.html#a86ef9a388d72adcecc72106101289a5b">Tinker::TMP36</a>
+, <a class="el" href="class_tinker_1_1_toggle_switch.html#a65105e7162611bf74f994bc5efe303e5">Tinker::ToggleSwitch</a>
+</li>
+<li>pullUpResistor()
+: <a class="el" href="class_tinker_1_1_toggle_switch.html#aa02c010445ea3bb35fd0cbd648a65ed3">Tinker::ToggleSwitch</a>
+</li>
 </ul>
 
 
@@ -169,12 +222,19 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 , <a class="el" href="class_tinker_1_1_timeout.html#a9874e04e33dbd0adcf27aa8e4b3ce19e">Tinker::Timeout</a>
 </li>
 <li>reset()
-: <a class="el" href="class_tinker_1_1_circular_display_concept.html#a241f6f802857b2e71a4ddc0df069cee3">Tinker::CircularDisplayConcept</a>
+: <a class="el" href="class_tinker_1_1_exception.html#a5138ea8d72efc4e60345ebaae3bffc93">Tinker::Exception</a>
+, <a class="el" href="class_tinker_1_1_circular_display_concept.html#a241f6f802857b2e71a4ddc0df069cee3">Tinker::CircularDisplayConcept</a>
+</li>
+<li>resolution()
+: <a class="el" href="class_tinker_1_1_magnetic_sensor_l_s_m303.html#a991d1d4713990ab5c22d17ddd7538430">Tinker::MagneticSensorLSM303</a>
 </li>
 </ul>
 
 
 <h3><a class="anchor" id="index_s"></a>- s -</h3><ul>
+<li>ScopedTimer()
+: <a class="el" href="class_tinker_1_1_scoped_timer.html#ac218928749e1760fc041103b1affc015">Tinker::ScopedTimer</a>
+</li>
 <li>SequentialStatusSwitcher()
 : <a class="el" href="class_tinker_1_1_sequential_status_switcher.html#a797803dd373471cfe164a604fb9c63a3">Tinker::SequentialStatusSwitcher&lt; Switch &gt;</a>
 </li>
@@ -182,17 +242,21 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="class_tinker_1_1_circular_display_concept.html#afb2e5f61639ca69fcfee03aff11c3cb5">Tinker::CircularDisplayConcept</a>
 </li>
 <li>setColor()
-: <a class="el" href="class_tinker_1_1_circular_display_concept.html#afbb3fdb96358e6f57aace0e60c8ae0f5">Tinker::CircularDisplayConcept</a>
+: <a class="el" href="class_tinker_1_1_circular_display_concept.html#a35936e0def662439721f10a6864f957f">Tinker::CircularDisplayConcept</a>
 </li>
 <li>setColorFp()
 : <a class="el" href="class_tinker_1_1_circular_display_concept.html#acac2e3bd6a7f13a11682fa27e6852408">Tinker::CircularDisplayConcept</a>
 </li>
 <li>setEnabled()
-: <a class="el" href="class_tinker_1_1_abstract_actuator.html#acdf080d72a69a9136a14815911af3077">Tinker::AbstractActuator</a>
-, <a class="el" href="class_tinker_1_1_digital_actuator.html#a8eb6fc97351e585ca86af7879e2463de">Tinker::DigitalActuator</a>
+: <a class="el" href="class_tinker_1_1_digital_actuator.html#a8eb6fc97351e585ca86af7879e2463de">Tinker::DigitalActuator</a>
+, <a class="el" href="class_tinker_1_1_abstract_actuator.html#acdf080d72a69a9136a14815911af3077">Tinker::AbstractActuator</a>
 </li>
 <li>setNumberOfStatus()
 : <a class="el" href="class_tinker_1_1_sequential_status_switcher.html#a3902e545eb4bd4569804749b2bc03818">Tinker::SequentialStatusSwitcher&lt; Switch &gt;</a>
+</li>
+<li>setPin()
+: <a class="el" href="class_tinker_1_1_t_m_p36.html#ab6cee3ba6ffcffb142502acd21b627b2">Tinker::TMP36</a>
+, <a class="el" href="class_tinker_1_1_toggle_switch.html#a1ba55095535a83e5f8253b1f21141ddb">Tinker::ToggleSwitch</a>
 </li>
 <li>setStatus()
 : <a class="el" href="class_tinker_1_1_sequential_status_switcher.html#a26dbaed85bbb2355adab301a276b5e33">Tinker::SequentialStatusSwitcher&lt; Switch &gt;</a>
@@ -200,11 +264,20 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>setTimeout()
 : <a class="el" href="class_tinker_1_1_timeout.html#acdca11e6d4625b41263b476426e641f4">Tinker::Timeout</a>
 </li>
+<li>setVoltageRef()
+: <a class="el" href="class_tinker_1_1_t_m_p36.html#ac7c75a9c687b0e5eed5ffea985f92449">Tinker::TMP36</a>
+</li>
 <li>show()
 : <a class="el" href="class_tinker_1_1_circular_display_concept.html#a8e26cd3a32d40b5ec7ada3399c038f90">Tinker::CircularDisplayConcept</a>
 </li>
+<li>start()
+: <a class="el" href="class_tinker_1_1_timer.html#a0578f5d2ce24a5c62800ce56881b9b2c">Tinker::Timer</a>
+</li>
 <li>status()
 : <a class="el" href="class_tinker_1_1_sequential_status_switcher.html#a7aa5124953efe08ca73955e29263e4de">Tinker::SequentialStatusSwitcher&lt; Switch &gt;</a>
+</li>
+<li>stop()
+: <a class="el" href="class_tinker_1_1_timer.html#acd1d7ae72db26688ea9855000366f225">Tinker::Timer</a>
 </li>
 <li>switcher()
 : <a class="el" href="class_tinker_1_1_sequential_status_switcher.html#abf266aa623477b1aa8f3b5aa9cdbe623">Tinker::SequentialStatusSwitcher&lt; Switch &gt;</a>
@@ -213,6 +286,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <h3><a class="anchor" id="index_t"></a>- t -</h3><ul>
+<li>throwException()
+: <a class="el" href="class_tinker_1_1_exception.html#a062919d3d9da301c7f179971417afe91">Tinker::Exception</a>
+</li>
+<li>time()
+: <a class="el" href="class_tinker_1_1_exception.html#aa10db0327bf8b7cbeb108e06d7f0b8b0">Tinker::Exception</a>
+</li>
 <li>timeElapsedFromLastRefresh()
 : <a class="el" href="class_tinker_1_1_timeout.html#a3df09f3d14b086007b5f2c5acf4c5bc6">Tinker::Timeout</a>
 </li>
@@ -225,21 +304,49 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>timeoutReached()
 : <a class="el" href="class_tinker_1_1_timeout.html#aac92cc66378c068219ae83fd8daf8b9c">Tinker::Timeout</a>
 </li>
+<li>Timer()
+: <a class="el" href="class_tinker_1_1_timer.html#ad827b520bc33246d11a674f0f78ec76b">Tinker::Timer</a>
+</li>
 <li>timeToTimeout()
 : <a class="el" href="class_tinker_1_1_timeout.html#a04e2c526e3f659e72729561cd0a3cddb">Tinker::Timeout</a>
+</li>
+<li>TMP36()
+: <a class="el" href="class_tinker_1_1_t_m_p36.html#ae9cd3aabe93abce80b8568a454273ced">Tinker::TMP36</a>
+</li>
+<li>ToggleSwitch()
+: <a class="el" href="class_tinker_1_1_toggle_switch.html#a3fef308c205c81a3f73ba8b484a5e95b">Tinker::ToggleSwitch</a>
+</li>
+<li>type()
+: <a class="el" href="class_tinker_1_1_exception.html#a1549a08b07b86de34143a968a1c8e8da">Tinker::Exception</a>
 </li>
 </ul>
 
 
 <h3><a class="anchor" id="index_v"></a>- v -</h3><ul>
 <li>value()
-: <a class="el" href="class_tinker_1_1_abstract_sensor.html#ab332beffa4a65e9b2309262bee58255a">Tinker::AbstractSensor</a>
+: <a class="el" href="class_tinker_1_1_abstract_scalar_sensor.html#af8f82d4be03b20bede8d1017294e20e5">Tinker::AbstractScalarSensor</a>
+, <a class="el" href="class_tinker_1_1_abstract3d_sensor.html#a0b7279104d896bedb7cd0f7f753153cd">Tinker::Abstract3dSensor</a>
+, <a class="el" href="class_tinker_1_1_t_m_p36.html#a88204716f4423111660eae04e593ff09">Tinker::TMP36</a>
+, <a class="el" href="class_tinker_1_1_magnetic_sensor_l_s_m303.html#a013e433e59aa634fe9aab2ab2bfb568b">Tinker::MagneticSensorLSM303</a>
+</li>
+<li>version()
+: <a class="el" href="class_tinker_1_1_magnetic_sensor_l_s_m303.html#add0ba571fbfc1445ca5496c0ede720da">Tinker::MagneticSensorLSM303</a>
+</li>
+<li>voltageRef()
+: <a class="el" href="class_tinker_1_1_t_m_p36.html#aabf29c45746eaafc39453c0325c103a9">Tinker::TMP36</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_0x7e"></a>- ~ -</h3><ul>
+<li>~ScopedTimer()
+: <a class="el" href="class_tinker_1_1_scoped_timer.html#ac120fe39a4db617344db179a5181f6a9">Tinker::ScopedTimer</a>
 </li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Nov 22 2013 21:31:50 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Dec 9 2013 21:35:47 for Arduino Tinker Library by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>

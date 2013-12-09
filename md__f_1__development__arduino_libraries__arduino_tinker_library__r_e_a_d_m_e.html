@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.5"/>
-<title>ArduinoTinkerLibrary</title>
+<title>Arduino Tinker Library: ![Logo](https://raw.github.com/Nicola17/ArduinoTinkerLibrary/develop/resources/tinkerLogo.png)</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,6 +22,10 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="tinkerLogo.png"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Arduino Tinker Library
+   </div>
+  </td>
  </tr>
  </tbody>
 </table>
@@ -60,7 +64,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -72,20 +76,58 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">ArduinoTinkerLibrary </div>  </div>
+<div class="title">![Logo](<a href="https://raw.github.com/Nicola17/ArduinoTinkerLibrary/develop/resources/tinkerLogo.png">https://raw.github.com/Nicola17/ArduinoTinkerLibrary/develop/resources/tinkerLogo.png</a>) </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><hr/>
-<p> Additional Dependencies</p>
-<p>Some classes of the Arduino Tinker Library require additional library</p>
-<p>*LiquidCrystal[<a href="http://arduino.cc/en/Tutorial/LiquidCrystal">http://arduino.cc/en/Tutorial/LiquidCrystal</a>] -LiquidCrystalLog</p>
-<p>*Adafruit_NeoPixel[<a href="https://github.com/adafruit/Adafruit_NeoPixel">https://github.com/adafruit/Adafruit_NeoPixel</a>] -NeoPixelCircularDisplay</p>
-<hr/>
-<p> This Project adopt GitFlow branching model </p>
+<div class="textblock"><p><b>Arduino Tinker Library</b> is a library of programming functions mainly aimed at fast development of Arduino projects.</p>
+<h4>The Library</h4>
+<p>ArduinoTinkerLibrary primary goal is to be a framework for fast and reliable development of Arduino projects.</p>
+<p>It cointains the following modules:</p>
+<ul>
+<li>Template algorithms</li>
+<li>Helper classes</li>
+<li>Complete and flexible logging system</li>
+<li>Wrapper classes for sensors</li>
+<li>Wrapper classes for actuators</li>
+<li>Geometric computation tools</li>
+</ul>
+<h4>Additional Dependencies</h4>
+<p>Some classes of the Arduino Tinker Library require additional library. If you want to use those classes in your project you need to download and install the corresponding external dependencies.</p>
+<ul>
+<li><a href="http://arduino.cc/en/Tutorial/LiquidCrystal" title="LiquidCrystal">LiquidCrystal</a><ul>
+<li>LiquidCrystalLog</li>
+</ul>
+</li>
+<li><a href="https://github.com/adafruit/Adafruit_NeoPixel" title="Adafruit_NeoPixel">Adafruit_NeoPixel</a><ul>
+<li>NeoPixelCircularDisplay</li>
+</ul>
+</li>
+<li><a href="https://github.com/adafruit/Adafruit_Sensor" title="Adafruit_Sensor">Adafruit_Sensor</a><ul>
+<li>MagneticSensorLSM303</li>
+</ul>
+</li>
+<li><a href="https://github.com/adafruit/Adafruit_LSM303DLHC" title="Adafruit_LSM303DLHC">Adafruit_LSM303DLHC</a><ul>
+<li>MagneticSensorLSM303</li>
+</ul>
+</li>
+</ul>
+<p>Please follow <a href="http://www.arduino.cc/en/Hacking/Libraries" title="Arduino Libraries Guide">this guide</a> to install external dependencies in your Arduino IDE</p>
+<p>When you clone the library on you're PC you can also find <a href="https://github.com/Nicola17/ArduinoTinkerLibrary/blob/develop/resources/AdditionalDependencies.zip?raw=true" title="./resources/AdditionalDependencies.zip">./resources/AdditionalDependencies.zip</a> which contains all the required libraries.</p>
+<p>#</p>
+<h3>Circuit Diagram</h3>
+<p>A circuit diagram of each example will be available in the example directory. To open up example files you need to download and install <a href="http://fritzing.org/" title="Fritzing">Fritzing</a></p>
+<h4>Documentation</h4>
+<p>You will find a doxygen generated documentation inside the <a href="http://nicola17.github.io/ArduinoTinkerLibrary/" title="Arduino Tinker Library GitHub Pages">Arduino Tinker Library GitHub Pages</a></p>
+<h4>Additional information</h4>
+<p>This Project adopt GitFlow branching model</p>
+<h4>Donate</h4>
+<p>If you want to buy me a <a href="http://en.wikipedia.org/wiki/Espresso" title="Caffe espresso">coffee</a> please click on one of the following links :)</p>
+<p><a href="https://www.gittip.com/Nicola17/">![Donate to ArduinoTinkerLibrary project](https://www.gittip.com/assets/10.1.51/logo.png)</a></p>
+<p><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=M685MHSPMFBPG">![Donate to ArduinoTinkerLibrary project](https://www.paypalobjects.com/en_GB/i/btn/btn_donate_LG.gif)</a> </p>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Nov 22 2013 21:31:49 by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Dec 9 2013 21:35:44 for Arduino Tinker Library by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>
