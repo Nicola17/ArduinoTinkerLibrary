@@ -1,2 +1,2 @@
-//#define ENABLE_LOGGER
-//#define SAFE CODE
+#define ENABLE_LOGGER
+#define SAFE CODE
