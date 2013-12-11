@@ -34,23 +34,23 @@ namespace Tinker{
 	};
 }
 #ifdef ENABLE_LOGGER
-	#define SECURE_LOG(_logptr,val){if(_logptr!=0){_logptr->display(val);_logptr->endline();}}
-	#define SECURE_LOG_VAL(_logptr,name,val){if(_logptr!=0){_logptr->display(name);_logptr->display(": ");_logptr->display(val);_logptr->endline();}}
-	#define SECURE_LOG_CLEAR(_logptr){if(_logptr!=0){_logptr->clear();}}
-	#define SECURE_LOG_ONOFF(_logptr,name,v){\
-		if(_logptr!=0){\
+	#define SECURE_LOG(logptr,val){if((logptr)!=0){(logptr)->display(val);(logptr)->endline();}}
+	#define SECURE_LOG_VAL(logptr,name,val){if((logptr)!=0){(logptr)->display(name);(logptr)->display(": ");(logptr)->display(val);(logptr)->endline();}}
+	#define SECURE_LOG_CLEAR(logptr){if((logptr)!=0){(logptr)->clear();}}
+	#define SECURE_LOG_ONOFF(logptr,name,v){\
+		if((logptr)!=0){\
 			if(v){\
-				_logptr->display(name);_logptr->display(": ON");_logptr->endline();\
+				(logptr)->display(name);(logptr)->display(": ON");(logptr)->endline();\
 			}else{\
-				_logptr->display(name);_logptr->display(": OFF");_logptr->endline();\
+				(logptr)->display(name);(logptr)->display(": OFF");(logptr)->endline();\
 			}\
 		}\
 	}
 #else
-	#define SECURE_LOG(_logptr,val){}
-	#define SECURE_LOG_VAL(_logptr,name,val){}
-	#define SECURE_LOG_CLEAR(_logptr){}
-	#define SECURE_LOG_ONOFF(_logptr,name){}
+	#define SECURE_LOG(logptr,val){}
+	#define SECURE_LOG_VAL(logptr,name,val){}
+	#define SECURE_LOG_CLEAR(logptr){}
+	#define SECURE_LOG_ONOFF(logptr,name){}
 #endif
 
 #endif
