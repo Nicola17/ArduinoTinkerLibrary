@@ -37,12 +37,12 @@ namespace Tinker{
 	#define SECURE_LOG(_logptr,val){if(_logptr!=0){_logptr->display(val);_logptr->endline();}}
 	#define SECURE_LOG_VAL(_logptr,name,val){if(_logptr!=0){_logptr->display(name);_logptr->display(": ");_logptr->display(val);_logptr->endline();}}
 	#define SECURE_LOG_CLEAR(_logptr){if(_logptr!=0){_logptr->clear();}}
-	#define SECURE_LOG_ONOFF(_logptr,name){\
+	#define SECURE_LOG_ONOFF(_logptr,name,v){\
 		if(_logptr!=0){\
 			if(v){\
-				_logptr->display(name);_logptr->display(": ON");_log->endline();\
+				_logptr->display(name);_logptr->display(": ON");_logptr->endline();\
 			}else{\
-				_logptr->display(name);_logptr->display(": OFF");_log->endline();\
+				_logptr->display(name);_logptr->display(": OFF");_logptr->endline();\
 			}\
 		}\
 	}
