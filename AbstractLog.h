@@ -50,7 +50,7 @@ namespace Tinker{
 	#define SECURE_LOG(logptr,val){}
 	#define SECURE_LOG_VAL(logptr,name,val){}
 	#define SECURE_LOG_CLEAR(logptr){}
-	#define SECURE_LOG_ONOFF(logptr,name){}
+	#define SECURE_LOG_ONOFF(logptr,name,v){}
 #endif
 
 #endif
