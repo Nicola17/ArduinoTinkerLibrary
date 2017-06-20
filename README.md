@@ -1,11 +1,11 @@
 ![Logo](https://raw.github.com/Nicola17/ArduinoTinkerLibrary/develop/resources/tinkerLogo.png)
 ====================
 
-**Arduino Tinker Library** is a library of programming functions mainly aimed at fast development of Arduino projects.
+**Arduino Tinker Library** is aimed at fast development of Arduino projects.
 
 #### The Library
 
-ArduinoTinkerLibrary primary goal is to be a framework for fast and reliable development of Arduino projects. 
+The primary goal of the library is to provide a framework for fast and reliable development of Arduino projects. 
 
 It cointains the following modules:
 
@@ -18,8 +18,8 @@ It cointains the following modules:
 
 #### Additional Dependencies
 
-Some classes of the Arduino Tinker Library require additional library.
-If you want to use those classes in your project you need to download and install the corresponding external dependencies.
+Some classes of the Arduino Tinker Library require additional libraries.
+If you want to use those classes in your project you must download and install the corresponding external dependencies.
 
 *	[LiquidCrystal] [1]
 	* LiquidCrystalLog
@@ -38,7 +38,7 @@ If you want to use those classes in your project you need to download and instal
 Please follow [this guide] [5] to install external dependencies in your Arduino IDE
 
 
-When you clone the library on you're PC you can also find [./resources/AdditionalDependencies.zip][6] which contains all the required libraries.
+When you clone the library on your PC you will find in [./resources/AdditionalDependencies.zip][6] all the required libraries.
 
 
 [1]: http://arduino.cc/en/Tutorial/LiquidCrystal "LiquidCrystal"
@@ -62,11 +62,3 @@ You will find a doxygen generated documentation inside the [Arduino Tinker Libra
 #### Additional information
 
 This Project adopt GitFlow branching model
-
-#### Donate
-If you want to buy me a [coffee][9] please click on one of the following links :)
-
-[9]: http://en.wikipedia.org/wiki/Espresso "Caffe espresso"
-[![Donate to ArduinoTinkerLibrary project](https://www.gittip.com/assets/10.1.51/logo.png)](https://www.gittip.com/Nicola17/)
-
-[![Donate to ArduinoTinkerLibrary project](https://www.paypalobjects.com/en_GB/i/btn/btn_donate_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=M685MHSPMFBPG)
