@@ -21,21 +21,21 @@ It cointains the following modules:
 Some classes of the Arduino Tinker Library require additional libraries.
 If you want to use those classes in your project you must download and install the corresponding external dependencies.
 
-*	[LiquidCrystal] [1]
+*	[LiquidCrystal][1]
 	* LiquidCrystalLog
 
-*	[Adafruit_NeoPixel] [2]
+*	[Adafruit_NeoPixel][2]
 	* NeoPixelCircularDisplay
 	
-* [Adafruit_Sensor] [3]
+* [Adafruit_Sensor][3]
   * MagneticSensorLSM303 
   
-* [Adafruit_LSM303DLHC] [4]
+* [Adafruit_LSM303DLHC][4]
   * MagneticSensorLSM303 
 	
 
 
-Please follow [this guide] [5] to install external dependencies in your Arduino IDE
+Please follow [this guide][5] to install external dependencies in your Arduino IDE
 
 
 When you clone the library on your PC you will find in [./resources/AdditionalDependencies.zip][6] all the required libraries.
@@ -50,12 +50,12 @@ When you clone the library on your PC you will find in [./resources/AdditionalDe
 #### Circuit Diagram
 
 A circuit diagram of each example will be available in the example directory.
-To open up example files you need to download and install [Fritzing] [7]
+To open up example files you need to download and install [Fritzing][7]
 
 [7]: http://fritzing.org/ "Fritzing"
 
 #### Documentation
-You will find a doxygen generated documentation inside the [Arduino Tinker Library GitHub Pages] [8]
+You will find a doxygen generated documentation inside the [Arduino Tinker Library GitHub Pages][8]
 
 [8]: http://nicola17.github.io/ArduinoTinkerLibrary/ "Arduino Tinker Library GitHub Pages"
 
